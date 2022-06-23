@@ -9,12 +9,40 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-//        Text("Hello!!").padding().background(Color.blue)
-        Text("Text here")
-            .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-            .background(Color.green)
-            .blur(radius: /*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
-            .opacity(/*@START_MENU_TOKEN@*/0.8/*@END_MENU_TOKEN@*/)
+//        VStack{
+//            Text("hello")
+//            Image("slack-logo-icon")
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
+//            Text("under the sea")
+//        }
+//        HStack{
+//            Text("horizontal")
+//            Text("stack")
+//        }
+//        ZStack{
+//            Image("slack-logo-icon")
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
+//            HStack(spacing: 40.0){
+//                Text("slack")
+//                Text("app")
+//            }
+//        }
+        VStack{
+            Spacer()
+            Image("slack-logo-icon")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+            Spacer()
+            HStack{
+                Spacer()
+                Text("slack")
+                Text("app")
+                Spacer()
+            }
+            Spacer()
+        }
     }
 }
 
