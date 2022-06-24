@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     // properties
-    @State var playerCard = "card6"
-    @State var cpuCard = "card12"
-    @State var playerScore = 0
-    @State var cpuScore = 0
+    @State private var playerCard = "card6"
+    @State private var cpuCard = "card12"
+    @State private var playerScore = 0
+    @State private var cpuScore = 0
     
     // view properties
     var body: some View {
@@ -44,18 +44,7 @@ struct ContentView: View {
                 }
                 Spacer()
                 Button(action: {
-                    // generate random number between 2 and 14
-                    let playerRandom = Int.random(in: 2...14)
-                    let cpuRandom = Int.random(in:2...14)
-                    
-                    playerCard = "card" + String(playerRandom)
-                    cpuCard = "card" + String(cpuRandom)
-                    
-                    if playerRandom > cpuRandom {
-                        playerScore += 1
-                    } else if cpuRandom > playerRandom {
-                        cpuScore += 1
-                    }
+                    handlePlay()
                 }, label: {
                     Image("start")
                         .resizable(capInsets: EdgeInsets())
@@ -86,7 +75,21 @@ struct ContentView: View {
     }
     
     // methods
-    
+    func handlePlay(){
+        // generate random number between 2 and 14
+        let playerRandom = Int.random(in: 2...14)
+        let cpuRandom = Int.random(in:2...14)
+        
+        playerCard = "card" + String(playerRandom)
+        cpuCard = "card" + String(cpuRandom)
+        
+        if playerRandom > cpuRandom {
+            playerScore += 1
+        }
+        else if cpuRandom > playerRandom {
+            cpuScore += 1
+        }
+    }
     
 }
 
