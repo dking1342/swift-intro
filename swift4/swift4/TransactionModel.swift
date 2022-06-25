@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import SwiftUIFontIcon
 
-struct Transaction:Identifiable, Decodable, Hashable{
+struct Transaction:Identifiable, Decodable, Hashable {
     let id: Int
     let date: String
     let institution: String
@@ -37,6 +37,10 @@ struct Transaction:Identifiable, Decodable, Hashable{
     
     var signedAmount: Double {
         return type == TransactionType.credit.rawValue ? amount : -amount
+    }
+    
+    var month:String{
+        date.dateParsed().formatted(.dateTime.year().month(.wide))
     }
 }
 
