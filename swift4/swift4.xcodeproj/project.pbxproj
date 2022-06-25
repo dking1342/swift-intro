@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B42230028657FCA00148C3D /* SwiftUIFontIcon in Frameworks */ = {isa = PBXBuildFile; productRef = 1B4222FF28657FCA00148C3D /* SwiftUIFontIcon */; };
 		1B4223042866823200148C3D /* TransactionListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4223032866823200148C3D /* TransactionListViewModel.swift */; };
+		1B4223082866BA9600148C3D /* RecentTransactionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B4223072866BA9600148C3D /* RecentTransactionList.swift */; };
 		1B43848C28656E1F00348B57 /* swift4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B43848B28656E1F00348B57 /* swift4App.swift */; };
 		1B43848E28656E1F00348B57 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B43848D28656E1F00348B57 /* ContentView.swift */; };
 		1B43849028656E2000348B57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B43848F28656E2000348B57 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		1B4223032866823200148C3D /* TransactionListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListViewModel.swift; sourceTree = "<group>"; };
+		1B4223072866BA9600148C3D /* RecentTransactionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentTransactionList.swift; sourceTree = "<group>"; };
 		1B43848828656E1F00348B57 /* swift4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swift4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B43848B28656E1F00348B57 /* swift4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift4App.swift; sourceTree = "<group>"; };
 		1B43848D28656E1F00348B57 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				1B43848D28656E1F00348B57 /* ContentView.swift */,
 				1B4384A02865775100348B57 /* TransactionRow.swift */,
 				1B4223032866823200148C3D /* TransactionListViewModel.swift */,
+				1B4223072866BA9600148C3D /* RecentTransactionList.swift */,
 				1B43849C2865750D00348B57 /* TransactionModel.swift */,
 				1B43849928656E8200348B57 /* README.md */,
 				1B43848F28656E2000348B57 /* Assets.xcassets */,
@@ -163,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B43849F2865762E00348B57 /* PreviewData.swift in Sources */,
+				1B4223082866BA9600148C3D /* RecentTransactionList.swift in Sources */,
 				1B43849D2865750D00348B57 /* TransactionModel.swift in Sources */,
 				1B43848E28656E1F00348B57 /* ContentView.swift in Sources */,
 				1B4384A12865775100348B57 /* TransactionRow.swift in Sources */,
