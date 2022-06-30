@@ -19,12 +19,9 @@ struct ContentView: View {
                 .foregroundColor(Color(red:red/255,green:green/255,blue:blue/255))
                 .border(Color.black,width: 1)
             
-            Slider(value: $red, in: 0...255,step:1)
-            Text("Red: \(Int(red))")
-            Slider(value: $green, in: 0...255,step:1)
-            Text("Green: \(Int(green))")
-            Slider(value: $blue, in: 0...255,step:1)
-            Text("Blue: \(Int(blue))")
+            SliderView(value:$red,label: "Red")
+            SliderView(value:$green,label: "Green")
+            SliderView(value:$blue,label: "Blue")
         }
 
     }
