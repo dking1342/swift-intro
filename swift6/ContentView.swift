@@ -9,68 +9,44 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        HStack{
-            Spacer()
-            VStack{
-                Spacer()
-                Image(systemName: "star")
-                    .imageScale(.large)
-                    .font(.largeTitle)
-                    .foregroundColor(.green)
-                Spacer()
-                Image(systemName: "star")
-                    .imageScale(.large)
-                    .font(.largeTitle)
-                    .foregroundColor(.yellow)
-                Spacer()
-                Image(systemName: "star")
-                    .imageScale(.large)
-                    .font(.largeTitle)
-                    .foregroundColor(.red)
-                Spacer()
+        ZStack{
+            LinearGradient(colors: [.black,.gray], startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea(.all)
+            Image("avocado")
+                .resizable()
+                .ignoresSafeArea(.all)
+                .aspectRatio(contentMode: .fill)
+                .foregroundStyle(
+                    .linearGradient(colors:[.red,.black], startPoint: .top, endPoint: .bottom)
+                )
+                .opacity(0.5)
 
-            }
-            Spacer()
             VStack{
+                VStack{
+                    HStack(alignment: .center, spacing: 200){
+                        VStack{
+                            Text("Hardcore")
+                                .fontWeight(.bold)
+                                .padding(.bottom,1)
+                            Text("Avo Toast")
+                                .fontWeight(.bold)
+                        }
+                        .font(.title2)
+                        .foregroundColor(.white)
+                        
+                        Image(systemName: "heart")
+                            .imageScale(.large)
+                            .font(.largeTitle)
+                            .foregroundColor(.white)
+                        
+                    }
+                }
                 Spacer()
-                Image(systemName: "star")
-                    .imageScale(.large)
-                    .font(.largeTitle)
-                    .foregroundColor(.green)
-                Spacer()
-                Image(systemName: "star")
-                    .imageScale(.large)
-                    .font(.largeTitle)
-                    .foregroundColor(.yellow)
-                Spacer()
-                Image(systemName: "star")
-                    .imageScale(.large)
-                    .font(.largeTitle)
-                    .foregroundColor(.red)
-                Spacer()
-
+                Text("Energize with this health and hearty breakfast")
+                    .foregroundColor(.white)
+                    .font(.headline)
+                    .fontWeight(.bold)
             }
-            Spacer()
-            VStack{
-                Spacer()
-                Image(systemName: "star")
-                    .imageScale(.large)
-                    .font(.largeTitle)
-                    .foregroundColor(.green)
-                Spacer()
-                Image(systemName: "star")
-                    .imageScale(.large)
-                    .font(.largeTitle)
-                    .foregroundColor(.yellow)
-                Spacer()
-                Image(systemName: "star")
-                    .imageScale(.large)
-                    .font(.largeTitle)
-                    .foregroundColor(.red)
-                Spacer()
-
-            }
-            Spacer()
         }
         
     }
