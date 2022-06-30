@@ -1,0 +1,20 @@
+//
+//  Slider.swift
+//  swift8
+//
+//  Created by David King on 6/30/22.
+//
+
+import SwiftUI
+
+struct Slider: View {
+    var body: some View {
+        Text("Hello, Slider!")
+    }
+}
+
+struct Slider_Previews: PreviewProvider {
+    static var previews: some View {
+        Slider()
+    }
+}
