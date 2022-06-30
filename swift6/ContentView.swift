@@ -9,8 +9,70 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        HStack{
+            Spacer()
+            VStack{
+                Spacer()
+                Image(systemName: "star")
+                    .imageScale(.large)
+                    .font(.largeTitle)
+                    .foregroundColor(.green)
+                Spacer()
+                Image(systemName: "star")
+                    .imageScale(.large)
+                    .font(.largeTitle)
+                    .foregroundColor(.yellow)
+                Spacer()
+                Image(systemName: "star")
+                    .imageScale(.large)
+                    .font(.largeTitle)
+                    .foregroundColor(.red)
+                Spacer()
+
+            }
+            Spacer()
+            VStack{
+                Spacer()
+                Image(systemName: "star")
+                    .imageScale(.large)
+                    .font(.largeTitle)
+                    .foregroundColor(.green)
+                Spacer()
+                Image(systemName: "star")
+                    .imageScale(.large)
+                    .font(.largeTitle)
+                    .foregroundColor(.yellow)
+                Spacer()
+                Image(systemName: "star")
+                    .imageScale(.large)
+                    .font(.largeTitle)
+                    .foregroundColor(.red)
+                Spacer()
+
+            }
+            Spacer()
+            VStack{
+                Spacer()
+                Image(systemName: "star")
+                    .imageScale(.large)
+                    .font(.largeTitle)
+                    .foregroundColor(.green)
+                Spacer()
+                Image(systemName: "star")
+                    .imageScale(.large)
+                    .font(.largeTitle)
+                    .foregroundColor(.yellow)
+                Spacer()
+                Image(systemName: "star")
+                    .imageScale(.large)
+                    .font(.largeTitle)
+                    .foregroundColor(.red)
+                Spacer()
+
+            }
+            Spacer()
+        }
+        
     }
 }
 
