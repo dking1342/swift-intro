@@ -8,6 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isLiked = false
+    @State private var numHearts = 0
+    
+    func handleTouch(){
+        isLiked.toggle()
+        if isLiked{
+            numHearts += 1
+        } else {
+            numHearts -= 1
+        }
+    }
+    
     var body: some View {
         ZStack{
             LinearGradient(colors: [.black,.gray], startPoint: .top, endPoint: .bottom)
@@ -34,10 +46,30 @@ struct ContentView: View {
                         .font(.title2)
                         .foregroundColor(.white)
                         
-                        Image(systemName: "heart")
-                            .imageScale(.large)
-                            .font(.largeTitle)
+                        VStack{
+                            Button(action:{
+                                handleTouch()
+                            }) {
+                                if isLiked {
+                                    Image(systemName: "heart.fill")
+                                        .imageScale(.large)
+                                        .font(.largeTitle)
+                                        .foregroundColor(.red)
+                                    
+                                } else {
+                                    Image(systemName: "heart")
+                                        .imageScale(.large)
+                                        .font(.largeTitle)
+                                        .foregroundColor(.red)
+                                    
+                                }
+                            }
+                            HStack{
+                                Text("Likes: ")
+                                Text(String(numHearts))
+                            }
                             .foregroundColor(.white)
+                        }
                         
                     }
                 }
@@ -46,7 +78,7 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .font(.headline)
                     .fontWeight(.bold)
-            }
+            }.padding()
         }
         
     }
