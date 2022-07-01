@@ -7,19 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B120E43286EB68C00C6508F /* SlotRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B120E42286EB68C00C6508F /* SlotRowView.swift */; };
+		1BF02082286E74F200754DE0 /* OrderedCollections in Frameworks */ = {isa = PBXBuildFile; productRef = 1BF02081286E74F200754DE0 /* OrderedCollections */; };
+		1BF02085286E750200754DE0 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 1BF02084286E750200754DE0 /* Collections */; };
 		1BFEBCC5286D604A00A259D8 /* swift7App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEBCC4286D604A00A259D8 /* swift7App.swift */; };
 		1BFEBCC7286D604A00A259D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEBCC6286D604A00A259D8 /* ContentView.swift */; };
 		1BFEBCC9286D604C00A259D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BFEBCC8286D604C00A259D8 /* Assets.xcassets */; };
 		1BFEBCCC286D604C00A259D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BFEBCCB286D604C00A259D8 /* Preview Assets.xcassets */; };
+		1BFEBCF3286E597100A259D8 /* SlotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFEBCF2286E597100A259D8 /* SlotsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B120E42286EB68C00C6508F /* SlotRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotRowView.swift; sourceTree = "<group>"; };
 		1BFEBCC1286D604A00A259D8 /* swift7.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swift7.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BFEBCC4286D604A00A259D8 /* swift7App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift7App.swift; sourceTree = "<group>"; };
 		1BFEBCC6286D604A00A259D8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1BFEBCC8286D604C00A259D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1BFEBCCB286D604C00A259D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1BFEBCD2286D606300A259D8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1BFEBCF2286E597100A259D8 /* SlotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +33,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BF02085286E750200754DE0 /* Collections in Frameworks */,
+				1BF02082286E74F200754DE0 /* OrderedCollections in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +62,8 @@
 			children = (
 				1BFEBCC4286D604A00A259D8 /* swift7App.swift */,
 				1BFEBCC6286D604A00A259D8 /* ContentView.swift */,
+				1B120E42286EB68C00C6508F /* SlotRowView.swift */,
+				1BFEBCF2286E597100A259D8 /* SlotsView.swift */,
 				1BFEBCD2286D606300A259D8 /* README.md */,
 				1BFEBCC8286D604C00A259D8 /* Assets.xcassets */,
 				1BFEBCCA286D604C00A259D8 /* Preview Content */,
@@ -85,6 +95,10 @@
 			dependencies = (
 			);
 			name = swift7;
+			packageProductDependencies = (
+				1BF02081286E74F200754DE0 /* OrderedCollections */,
+				1BF02084286E750200754DE0 /* Collections */,
+			);
 			productName = swift7;
 			productReference = 1BFEBCC1286D604A00A259D8 /* swift7.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +127,10 @@
 				Base,
 			);
 			mainGroup = 1BFEBCB8286D604A00A259D8;
+			packageReferences = (
+				1BF02080286E74F200754DE0 /* XCRemoteSwiftPackageReference "swift-collections" */,
+				1BF02083286E750200754DE0 /* XCRemoteSwiftPackageReference "swift-collections" */,
+			);
 			productRefGroup = 1BFEBCC2286D604A00A259D8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,7 +158,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BFEBCC7286D604A00A259D8 /* ContentView.swift in Sources */,
+				1B120E43286EB68C00C6508F /* SlotRowView.swift in Sources */,
 				1BFEBCC5286D604A00A259D8 /* swift7App.swift in Sources */,
+				1BFEBCF3286E597100A259D8 /* SlotsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +359,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1BF02080286E74F200754DE0 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.2;
+			};
+		};
+		1BF02083286E750200754DE0 /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1BF02081286E74F200754DE0 /* OrderedCollections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BF02080286E74F200754DE0 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = OrderedCollections;
+		};
+		1BF02084286E750200754DE0 /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1BF02080286E74F200754DE0 /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1BFEBCB9286D604A00A259D8 /* Project object */;
 }
