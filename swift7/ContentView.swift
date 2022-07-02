@@ -19,12 +19,12 @@ struct ContentView: View {
         [Color.white,Color.white,Color.white],
         [Color.white,Color.white,Color.white]
     ]
-    @State private var credits = 1000
+    @State private var credits = 50
     @State private var canPlay = true
-    private var smallBetAmount = ["amount":1,"winner":15]
-    private var bigBetAmount = ["amount":25,"winner":500]
-
-    
+    @State private var hasCredits = true
+    @State var betAmount = ["amount":0,"winner":0]
+    @State var bgColor = Color.green
+    @State var isWinner = false
     
     func resetBoard(){
         // randomly select slots
@@ -55,11 +55,38 @@ struct ContentView: View {
     }
     
     
-    func checkSmallWinner(){
-        canPlay = true
-        if credits - smallBetAmount["amount"]! >= 0 {
-            credits -= smallBetAmount["amount"]!
+    func handleSpin(type:String){
+        // reset
+        isWinner = false
+        hasCredits = true
+
+        // bet setup
+        if type == "small" {
+            betAmount["amount"] = 1
+            betAmount["winner"] = 5
+            bgColor = Color.green
+        } else {
+            betAmount["amount"] = 25
+            betAmount["winner"] = 50
+            bgColor = Color.red
+        }
+        
+        if credits < betAmount["amount"]! {
+            canPlay = false
+        } else {
+            canPlay = true
+        }
+        if credits <= 0 {
+            hasCredits = false
+        } else {
+            hasCredits = true
+        }
+        
+        if canPlay && hasCredits {
+            
+            credits -= betAmount["amount"]!
             resetBoard()
+            
             var winningPossible:[Bool] = []
             
             // horizonatal
@@ -79,35 +106,13 @@ struct ContentView: View {
             let isWinnerCombo = winningPossible.filter{ $0 == true }
             
             if !isWinnerCombo.isEmpty {
-                credits += smallBetAmount["winner"]!
+                isWinner = true
+                if isWinnerCombo.count <= 4 {
+                    credits += betAmount["winner"]! * isWinnerCombo.count
+                } else {
+                    credits += betAmount["winner"]! * 20
+                }
             }
-        } else {
-            canPlay = false
-        }
-    }
-    
-    
-    func checkBigWinner(){
-        canPlay = true
-        if credits - bigBetAmount["amount"]! >= 0 {
-            credits -= bigBetAmount["amount"]!
-            resetBoard()
-            var winningPossible:[Bool] = []
-
-            winningPossible.append(checkPossible(slot1: [1,0], slot2: [1,1], slot3: [1,2],color:Color.white))
-            winningPossible.append(checkPossible(slot1: [0,0], slot2: [1,1], slot3: [2,2],color:Color.white))
-            winningPossible.append(checkPossible(slot1: [0,2], slot2: [1,1], slot3: [2,0],color:Color.white))
-            
-            let isWinnerCombo = winningPossible.filter{ $0 == true}
-            
-            if isWinnerCombo.count == 3 {
-                credits += bigBetAmount["winner"]!
-                changeTileColors(slot1: [1,0], slot2: [1,1], slot3: [1,2], color: Color.red)
-                changeTileColors(slot1: [0,0], slot2: [1,1], slot3: [2,2], color: Color.red)
-                changeTileColors(slot1: [0,2], slot2: [1,1], slot3: [2,0], color: Color.red)
-            }
-        } else {
-            canPlay = false
         }
     }
     
@@ -148,19 +153,23 @@ struct ContentView: View {
                     Spacer()
                     VStack{
                         Text("Credits: " + String(credits))
+                            .frame(width: hasCredits ? 150 : 0, height: hasCredits ? 50 : 0)
                             .foregroundColor(.black)
-                            .padding(.horizontal, 30)
-                            .padding(.vertical, 15)
-                            .background(.white.opacity(0.5))
+                            .background(isWinner ? Color.green.opacity(0.5) : Color.white.opacity(0.5))
                             .cornerRadius(20)
-                        if !canPlay {
-                            Text("Not enough credit to play!")
-                                .foregroundColor(.white)
-                                .padding(.horizontal, 20)
-                                .padding(.vertical, 10)
-                                .background(.red.opacity(0.7))
-                                .cornerRadius(20)
-                        }
+                            .animation(.none, value: isWinner)
+                            .scaleEffect(isWinner ? 1.2 : 1)
+                            .animation(.spring(response: 0.7, dampingFraction: 0.3), value: isWinner)
+                        Text("Not enough credit to spin!")
+                            .frame(width: canPlay ? 0 : 300, height: canPlay ? 0 : 50)
+                            .foregroundColor(.white)
+                            .font(.title3)
+                            .background(.red.opacity(0.7))
+                            .animation(.none, value: canPlay)
+                            .cornerRadius(20)
+                            .scaleEffect(canPlay ? 1.2 : 1)
+                            .animation(.spring(response: 0.35, dampingFraction: 0.6), value: canPlay)
+
                     }
                     Spacer()
                 }
@@ -178,35 +187,43 @@ struct ContentView: View {
                 Spacer()
                 HStack{
                     Spacer()
-                    Button(action: {
-                        checkSmallWinner()
-                    }){
-                        Text("Spin")
-                            .padding(.horizontal,50)
-                            .padding(.vertical,10)
-                            .background(.pink)
+                    VStack{
+                        Button(action: {
+                            handleSpin(type: "small")
+                        }){
+                            Text("Spin")
+                                .padding(.horizontal,50)
+                                .padding(.vertical,10)
+                                .background(.pink)
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .cornerRadius(20)
+                        }
+                        Text("Credit: 1")
                             .font(.headline)
-                            .foregroundColor(.white)
-                            .cornerRadius(20)
                     }
                     Spacer()
-                    Button(action: {
-                        checkBigWinner()
-                    }){
-                        Text("Big Spin")
-                            .padding(.horizontal,50)
-                            .padding(.vertical,10)
-                            .background(.green)
+                    VStack{
+                        Button(action: {
+                            handleSpin(type: "big")
+                        }){
+                            Text("Big Spin")
+                                .padding(.horizontal,50)
+                                .padding(.vertical,10)
+                                .background(.green)
+                                .font(.headline)
+                                .foregroundColor(.black)
+                                .cornerRadius(20)
+                        }
+                        Text("Credit: 25")
                             .font(.headline)
-                            .foregroundColor(.black)
-                            .cornerRadius(20)
                     }
                     Spacer()
                 }
                 Spacer()
             }
-            
         }
+        .animation(.easeInOut(duration: 0.45), value: slotOutput)
     }
 }
 
